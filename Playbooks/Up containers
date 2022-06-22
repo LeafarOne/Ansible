@@ -1,0 +1,23 @@
+---
+- hosts: teste
+  become: true
+  tasks:
+  - name: copy docker-compose.yml
+    copy:
+      src: /home/ubuntu/teste/
+      dest: /home/ubuntu
+
+  - name: up redis
+    docker_compose:
+      project_src: /home/ubuntu/redis/
+      state: present
+      
+  - name: up postgress
+    docker_compose:
+      project_src: /home/ubuntu/postgress/
+      state: present
+      
+  - name: up postgress
+    docker_compose:
+      project_src: /home/ubuntu/nats/
+      state: present
