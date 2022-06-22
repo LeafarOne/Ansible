@@ -1,0 +1,13 @@
+---
+- hosts: <group>
+  become: true
+  tasks:
+  - name: copy docker-compose.yml
+    copy:
+      src: <you destiny>
+      dest: /home/ubuntu
+
+  - name: teste-docker
+    docker_compose:
+      project_src: <your destiny>
+      state: present
