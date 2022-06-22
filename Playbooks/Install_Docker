@@ -1,6 +1,6 @@
 ---
 
-- hosts: teste
+- hosts: <group>
   become: true
 
   tasks:
@@ -27,7 +27,11 @@
     - name: Install Docker Module for Python
       pip:
         name: docker
-    
+
+    - name: Install Docker-compose module for python
+      pip:
+        name: docker-compose
+             
     - name: New Group 
       ansible.builtin.group: 
         name: docker
